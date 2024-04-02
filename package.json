@@ -1,7 +1,7 @@
 {
   "name": "rtirlapirelay",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hacked together relay to expose clientside RealtimeIRL library as an API endpoint.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@rtirl/api": "^1.1.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "puppeteer": "^22.6.1"
   }
 }
