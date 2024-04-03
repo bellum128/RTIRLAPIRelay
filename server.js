@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/rtirl-api", express.static(path.join(__dirname, "node_modules/@rtirl/api/lib")));
 
 app.get("/location", (req, res) => {
-    location = JSON.parse(locationJSON);
+    location = JSON.parse(locationJSON) ?? {};
     location.streamerId = config.streamerId;
     res.send(JSON.stringify(location));
 });
