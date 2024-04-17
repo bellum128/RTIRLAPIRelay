@@ -30,7 +30,10 @@ app.listen(config.port, () => {
 });
 
 async function monitorTextChanges(url, selector, checkInterval = 1000) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "networkidle2" });
 
@@ -41,7 +44,6 @@ async function monitorTextChanges(url, selector, checkInterval = 1000) {
 
     const checkForChanges = async () => {
         const newText = await page.evaluate(selector => document.querySelector(selector).innerText, selector);
-
         if (newText !== currentText) {
             console.log("New location:", newText);
             currentText = newText;
