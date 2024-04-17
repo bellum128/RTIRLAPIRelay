@@ -1,10 +1,12 @@
 {
   "name": "rtirlapirelay",
   "version": "1.0.0",
-  "description": "Hacked together relay to expose clientside RealtimeIRL library as an API endpoint.",
+  "description": "Hacked together relay to expose seemingly clientside RealtimeIRL library as an API endpoint.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint *.js *.mjs",
+    "lint-fix": "npx eslint *.js *.mjs --fix"
   },
   "author": "bellum128",
   "license": "ISC",
@@ -12,5 +14,15 @@
     "@rtirl/api": "^1.1.5",
     "express": "^4.19.2",
     "puppeteer": "^22.6.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.0.2",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "globals": "^15.0.0"
   }
 }

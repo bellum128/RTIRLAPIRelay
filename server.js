@@ -21,7 +21,7 @@ app.get("/location", (req, res) => {
 app.listen(config.port, () => {
     console.log(`RealtimeIRL API Relay Started on Port ${config.port}.`);
 
-    console.log(`Attempting page pull:`);
+    console.log("Attempting page pull:");
     const url = `${config.host}:${config.port}/?streamerId=${config.streamerId}`;
     console.log(`Relay URL: ${url}`);
     const selector = "body";
@@ -31,7 +31,7 @@ app.listen(config.port, () => {
 
 async function monitorTextChanges(url, selector, checkInterval = 1000) {
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
 
     const page = await browser.newPage();
@@ -42,7 +42,7 @@ async function monitorTextChanges(url, selector, checkInterval = 1000) {
     console.log("Initial location:", currentText);
     locationJSON = currentText;
 
-    const checkForChanges = async () => {
+    const checkForChanges = async() => {
         const newText = await page.evaluate(selector => document.querySelector(selector).innerText, selector);
         if (newText !== currentText) {
             console.log("New location:", newText);
